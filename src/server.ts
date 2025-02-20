@@ -9,6 +9,7 @@ import {
   validatorCompiler, //Transforma os dados ao enviar pro front
 } from 'fastify-type-provider-zod'
 import { env } from './env'
+import { acessRoute } from './routes/acess'
 import { subscribeRoute } from './routes/subscibe'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
@@ -35,6 +36,7 @@ app.register(fastifySwaggerUi, {
 })
 
 app.register(subscribeRoute)
+app.register(acessRoute)
 
 app.listen({ port: env.PORT }).then(() => {
   console.log('Runing...')
