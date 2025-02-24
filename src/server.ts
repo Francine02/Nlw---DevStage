@@ -9,8 +9,12 @@ import {
   validatorCompiler, //Transforma os dados ao enviar pro front
 } from 'fastify-type-provider-zod'
 import { env } from './env'
-import { acessRoute } from './routes/acess'
-import { subscribeRoute } from './routes/subscibe'
+import { AcessRoute } from './routes/AcessRoute'
+import { QuantityInviteRoute } from './routes/QuantityInvitesRoute'
+import { SubscribeToEventRoute } from './routes/SubscribeToEventRoute'
+import { QuantityInvitesCountRoute } from './routes/QuantityInvitesCountRoute'
+import { SubscriberRankingPositionRoute } from './routes/SubscriberRankingPositionRoute'
+import { RankingRoute } from './routes/RankingRoute'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -35,8 +39,12 @@ app.register(fastifySwaggerUi, {
   routePrefix: '/docs',
 })
 
-app.register(subscribeRoute)
-app.register(acessRoute)
+app.register(SubscribeToEventRoute)
+app.register(AcessRoute)
+app.register(QuantityInviteRoute)
+app.register(QuantityInvitesCountRoute)
+app.register(SubscriberRankingPositionRoute)
+app.register(RankingRoute)
 
 app.listen({ port: env.PORT }).then(() => {
   console.log('Runing...')
