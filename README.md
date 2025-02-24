@@ -56,7 +56,7 @@ src/
 
 ```
 
-https://github.com/Francine02/Nlw---DevStage.git
+https://github.com/Francine02/Nlw-DevStage.git
 
 
 ```
